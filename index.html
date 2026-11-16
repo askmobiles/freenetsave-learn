@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free Learning for Kids: Math, English, Science, French, Geography | freenetsave</title>
-<meta name="description" content="Free practice for school subjects: math for Grades 1 to 12, plus English, science, French and geography, with lessons, questions, timed challenges and printable worksheets. No sign-up.">
+<title>Free Learning for Kids: Math, English, Science, French, Geography, History | freenetsave</title>
+<meta name="description" content="Free practice for school subjects: math for Grades 1 to 12, plus English, science, French, geography and history, with lessons, questions, timed challenges and printable worksheets. No sign-up.">
 <link rel="canonical" href="https://learn.freenetsave.com/">
 <meta name="theme-color" content="#2563eb">
 <link rel="stylesheet" href="assets/learn.css?v=13">
@@ -29,7 +29,6 @@
 .gp button[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff}
 .sc{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
 .card{grid-column:span 2;min-height:170px;border-radius:22px;padding:22px 24px;color:#fff;text-decoration:none;background-size:auto,auto 135%;background-position:0 0,right 30%;background-repeat:no-repeat;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 4px 14px rgba(23,32,51,.14)}
-.card:nth-child(n+4){grid-column:span 3;min-height:180px}
 .card b{font-size:30px;line-height:1.1;letter-spacing:-.02em;text-shadow:0 1px 2px rgba(0,0,0,.15)}
 .card span{font-size:17px;margin:4px 0 auto;text-shadow:0 1px 2px rgba(0,0,0,.2)}
 .card em{font-style:normal;background:#fff;color:var(--navy);font-weight:750;font-size:15px;border-radius:10px;padding:8px 14px;margin-top:14px}
@@ -47,8 +46,8 @@ a.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,32,51,.2)}
 .pt{display:flex;align-items:center;gap:20px;background:#efeafd;border-radius:22px;padding:20px 26px}
 .pt b{font-size:21px;white-space:nowrap}.pt span{flex:1;font-size:16px;color:var(--navy)}
 .pt a{flex:none;border:2px solid var(--blue);color:var(--blue-d);font-weight:750;text-decoration:none;border-radius:12px;padding:10px 18px;background:#fff}
-@media (max-width:1000px){.gp{grid-template-columns:repeat(6,1fr)}.sc{grid-template-columns:1fr 1fr}.card,.card:nth-child(n+4){grid-column:span 1}.card:last-child{grid-column:1/-1}.two{grid-template-columns:1fr}.pt{flex-wrap:wrap}.hh-tx{max-width:52%}}
-@media (max-width:700px){.hh{display:block;min-height:0;background-size:210% auto;background-position:right bottom;padding:20px 20px 64vw}.hh-tx{max-width:none}.gp{grid-template-columns:repeat(4,1fr)}.sc{grid-template-columns:1fr}.card:last-child{grid-column:auto}.card{min-height:150px}.pl{grid-template-columns:1fr}.pt b{white-space:normal}.hubp h2{font-size:22px}}
+@media (max-width:1000px){.gp{grid-template-columns:repeat(6,1fr)}.sc{grid-template-columns:1fr 1fr}.card{grid-column:span 1}.two{grid-template-columns:1fr}.pt{flex-wrap:wrap}.hh-tx{max-width:52%}}
+@media (max-width:700px){.hh{display:block;min-height:0;background-size:210% auto;background-position:right bottom;padding:20px 20px 64vw}.hh-tx{max-width:none}.gp{grid-template-columns:repeat(4,1fr)}.sc{grid-template-columns:1fr}.card{min-height:150px}.pl{grid-template-columns:1fr}.pt b{white-space:normal}.hubp h2{font-size:22px}}
 </style>
 </head>
 <body>
@@ -73,7 +72,7 @@ a.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,32,51,.2)}
 <div class="pl">
 <a href="https://math.freenetsave.com/#g3">Grade 3 Math →</a><a href="science/#g3">Grade 3 Science →</a>
 <a href="https://math.freenetsave.com/#g5">Grade 5 Math →</a><a href="science/#g6">Grade 6 Science →</a>
-<a href="english/#g1">Grade 1 English →</a><a href="geography/#g8">Grade 8 Geography →</a>
+<a href="english/#g1">Grade 1 English →</a><a href="history/#g8">Grade 8 History →</a>
 </div></section>
 </div>
 
@@ -81,7 +80,7 @@ a.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,32,51,.2)}
 </main>
 <script>
 /* subject list: change "to" when a subject gets more grades */
-var SUBJ=[{n:"Math",u:"https://math.freenetsave.com/",to:12,c:"#2563eb",b:"math-older"},{n:"English",u:"english/",to:8,c:"#0f8f7f",b:"english-older"},{n:"Science",u:"science/",to:12,c:"#7c3aed",b:"science-older"},{n:"French",u:"french/",to:8,c:"#db2777",b:"french-older"},{n:"Geography",u:"geography/",to:9,c:"#ea580c",b:"geography-older"}];
+var SUBJ=[{n:"Math",u:"https://math.freenetsave.com/",to:12,c:"#2563eb",b:"math-older"},{n:"English",u:"english/",to:10,c:"#0f8f7f",b:"english-older"},{n:"Science",u:"science/",to:12,c:"#7c3aed",b:"science-older"},{n:"French",u:"french/",to:8,c:"#db2777",b:"french-older"},{n:"Geography",u:"geography/",to:9,c:"#ea580c",b:"geography-older"},{n:"History",u:"history/",to:8,c:"#a16207",b:"older"}];
 (function(){var g=0,gp=document.getElementById("gp"),sc=document.getElementById("sc");
 function draw(){[].forEach.call(gp.children,function(b){b.setAttribute("aria-pressed",String(+b.dataset.g===g));});
  document.getElementById("subL").textContent=g?"Subjects for Grade "+g+". Tap one to start.":"Short lessons, practice and worksheets for the main school subjects.";
@@ -94,7 +93,7 @@ draw();})();
 
 <footer class="ft"><div class="ft-in"><div><a href="https://freenetsave.com/">freenetsave.com</a><a href="https://freenetsave.com/about/">About</a><a href="https://freenetsave.com/privacy-policy/">Privacy</a><a href="https://freenetsave.com/contact/">Contact</a></div><span>© 2026 freenetsave.com</span></div></footer>
 <script>(function(){function orig(){var h=location.hostname,m=h.match(/^(.*)\.translate\.goog$/);if(!m)return location.href.split("#")[0];var host=m[1].replace(/--/g,"\u0000").replace(/-/g,".").replace(/\u0000/g,"-");return "https://"+host+location.pathname;}document.addEventListener("change",function(e){var s=e.target;if(!s.classList||!s.classList.contains("fns-lang")||!s.value)return;var u=orig();top.location.href=s.value==="en"?u:"https://translate.google.com/translate?sl=en&tl="+s.value+"&u="+encodeURIComponent(u);});})();</script>
-<script src="/sitenav.js?v=1"></script>
+<script src="/sitenav.js?v=2"></script>
 <script src="/pwa.js?v=1" defer></script>
 </body>
 </html>
