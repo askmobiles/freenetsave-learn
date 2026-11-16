@@ -80,7 +80,7 @@ a.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,32,51,.2)}
 </main>
 <script>
 /* subject list: change "to" when a subject gets more grades */
-var SUBJ=[{n:"Math",u:"https://math.freenetsave.com/",to:12,c:"#2563eb",b:"math-older"},{n:"English",u:"english/",to:12,c:"#0f8f7f",b:"english-older"},{n:"Science",u:"science/",to:12,c:"#7c3aed",b:"science-older"},{n:"French",u:"french/",to:12,c:"#db2777",b:"french-older"},{n:"Geography",u:"geography/",to:12,c:"#ea580c",b:"geography-older"},{n:"History",u:"history/",to:10,c:"#a16207",b:"older"}];
+var SUBJ=[{n:"Math",u:"https://math.freenetsave.com/",to:12,c:"#2563eb",b:"math-older"},{n:"English",u:"english/",to:12,c:"#0f8f7f",b:"english-older"},{n:"Science",u:"science/",to:12,c:"#7c3aed",b:"science-older"},{n:"French",u:"french/",to:12,c:"#db2777",b:"french-older"},{n:"Geography",u:"geography/",to:12,c:"#ea580c",b:"geography-older"},{n:"History",u:"history/",to:12,c:"#a16207",b:"older"}];
 (function(){var g=0,gp=document.getElementById("gp"),sc=document.getElementById("sc");
 function draw(){[].forEach.call(gp.children,function(b){b.setAttribute("aria-pressed",String(+b.dataset.g===g));});
  document.getElementById("subL").textContent=g?"Subjects for Grade "+g+". Tap one to start.":"Short lessons, practice and worksheets for the main school subjects.";
