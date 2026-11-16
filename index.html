@@ -7,28 +7,91 @@
 <meta name="description" content="Free practice for school subjects: math for Grades 1 to 12, plus English, science, French and geography, with lessons, questions, timed challenges and printable worksheets. No sign-up.">
 <link rel="canonical" href="https://learn.freenetsave.com/">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="assets/learn.css?v=1">
+<link rel="stylesheet" href="assets/learn.css?v=13">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#2563EB">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Learn">
 <style>.fns-lang{font:inherit;font-size:15px;font-weight:650;color:#172033;background:#fff;border:2px solid #dde5f2;border-radius:10px;padding:8px 10px;max-width:160px;cursor:pointer}</style>
+<style>
+.hubp section{margin:0 0 30px}
+.hubp h2{margin:0 0 4px;font-size:26px;letter-spacing:-.02em}
+.hubp .sub{margin:0 0 14px;color:var(--muted);font-size:16px}
+.hh{min-height:290px;border-radius:26px;padding:34px 38px;background:#86dafc url(assets/banners/younger.jpg?v=1) right center/cover no-repeat;display:flex;align-items:center}
+.hh-tx{max-width:44%}
+.hh h1{margin:0 0 12px;font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.035em;font-weight:850}
+.hh p{margin:0 0 18px;font-size:17.5px;font-weight:550;color:var(--navy)}
+.hbtn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:750;font-size:18px;border-radius:14px;padding:14px 26px;box-shadow:0 6px 16px rgba(37,99,235,.35)}
+.gp{display:grid;grid-template-columns:repeat(12,1fr);gap:8px}
+.gp button{border:2px solid var(--line);background:#fff;border-radius:12px;padding:11px 2px;font-weight:750;font-size:15px;color:var(--blue-d);white-space:nowrap}
+.gp button:hover{border-color:var(--blue)}
+.gp button[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+.sc{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.card{grid-column:span 2;min-height:170px;border-radius:22px;padding:22px 24px;color:#fff;text-decoration:none;background-size:auto,auto 135%;background-position:0 0,right 30%;background-repeat:no-repeat;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 4px 14px rgba(23,32,51,.14)}
+.card:nth-child(n+4){grid-column:span 3;min-height:180px}
+.card b{font-size:30px;line-height:1.1;letter-spacing:-.02em;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+.card span{font-size:17px;margin:4px 0 auto;text-shadow:0 1px 2px rgba(0,0,0,.2)}
+.card em{font-style:normal;background:#fff;color:var(--navy);font-weight:750;font-size:15px;border-radius:10px;padding:8px 14px;margin-top:14px}
+.card.off{filter:grayscale(.85);opacity:.7}
+a.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,32,51,.2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.how a{background:var(--soft);border-radius:18px;padding:20px 10px;text-align:center;text-decoration:none;color:var(--navy);display:flex;flex-direction:column;align-items:center;gap:4px}
+.how svg{width:44px;height:44px;fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.how b{font-size:18px}.how span{font-size:14.5px;color:var(--muted)}
+.pop{background:#e9f8ee;border-radius:22px;padding:20px 22px}
+.pl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pl a{background:#fff;border-radius:10px;padding:11px 14px;font-weight:700;color:var(--blue-d);text-decoration:none;font-size:16px}
+.pl a:hover{box-shadow:inset 0 0 0 2px var(--blue)}
+.pt{display:flex;align-items:center;gap:20px;background:#efeafd;border-radius:22px;padding:20px 26px}
+.pt b{font-size:21px;white-space:nowrap}.pt span{flex:1;font-size:16px;color:var(--navy)}
+.pt a{flex:none;border:2px solid var(--blue);color:var(--blue-d);font-weight:750;text-decoration:none;border-radius:12px;padding:10px 18px;background:#fff}
+@media (max-width:1000px){.gp{grid-template-columns:repeat(6,1fr)}.sc{grid-template-columns:1fr 1fr}.card,.card:nth-child(n+4){grid-column:span 1}.card:last-child{grid-column:1/-1}.two{grid-template-columns:1fr}.pt{flex-wrap:wrap}.hh-tx{max-width:52%}}
+@media (max-width:700px){.hh{display:block;min-height:0;background-size:210% auto;background-position:right bottom;padding:20px 20px 64vw}.hh-tx{max-width:none}.gp{grid-template-columns:repeat(4,1fr)}.sc{grid-template-columns:1fr}.card:last-child{grid-column:auto}.card{min-height:150px}.pl{grid-template-columns:1fr}.pt b{white-space:normal}.hubp h2{font-size:22px}}
+</style>
 </head>
 <body>
 <header class="hd"><div class="hd-in"><a class="logo" href="https://freenetsave.com/" aria-label="freenetsave home" translate="no"><svg viewBox="0 0 512 512" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#1d4ed8"/></linearGradient></defs><rect x="16" y="16" width="480" height="480" rx="112" fill="url(#lg)"/><path d="M150 140 h150 l92 92 a28 28 0 0 1 0 40 l-120 120 a28 28 0 0 1 -40 0 l-92 -92 V160 a20 20 0 0 1 10 -20 z" fill="#fff"/><circle cx="196" cy="186" r="22" fill="url(#lg)"/><path d="M212 286 l40 40 l82 -96" fill="none" stroke="#2563eb" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><path d="M398 84 l10 26 l26 10 l-26 10 l-10 26 l-10 -26 l-26 -10 l26 -10 z" fill="#f97316"/></svg><span>freenet<b>save</b></span></a><nav><a href="/">All subjects</a><a href="https://math.freenetsave.com/">Math</a><a href="/english/">English</a><a href="/science/">Science</a><a href="/french/">French</a><a href="/geography/">Geography</a><select class="fns-lang" aria-label="Show this page in your language" translate="no"><option value="">🌐 Language</option><option value="en">English (original)</option><option value="ta">தமிழ் (Tamil)</option><option value="hi">हिन्दी (Hindi)</option><option value="pa">ਪੰਜਾਬੀ (Punjabi)</option><option value="ur">اردو (Urdu)</option><option value="gu">ગુજરાતી (Gujarati)</option><option value="bn">বাংলা (Bengali)</option><option value="si">සිංහල (Sinhala)</option><option value="ml">മലയാളം (Malayalam)</option><option value="te">తెలుగు (Telugu)</option><option value="fr">Français (French)</option><option value="es">Español (Spanish)</option><option value="pt">Português (Portuguese)</option><option value="ar">العربية (Arabic)</option><option value="fa">فارسی (Persian)</option><option value="zh-CN">中文 (Chinese)</option><option value="tl">Tagalog (Filipino)</option><option value="vi">Tiếng Việt (Vietnamese)</option><option value="ko">한국어 (Korean)</option><option value="ja">日本語 (Japanese)</option><option value="de">Deutsch (German)</option><option value="it">Italiano (Italian)</option><option value="ru">Русский (Russian)</option><option value="uk">Українська (Ukrainian)</option><option value="tr">Türkçe (Turkish)</option><option value="pl">Polski (Polish)</option><option value="so">Soomaali (Somali)</option><option value="sw">Kiswahili (Swahili)</option><option value="am">አማርኛ (Amharic)</option></select><a class="cta" href="https://freenetsave.com/contact/">Suggest a topic</a></nav></div></header>
-<main>
-<section class="hero" id="hero"><h1>Free learning for Grades 1 to 12</h1><p>Pick a subject. Every subject has short lessons, practice questions, timed challenges and printable worksheets. No sign-up, your progress stays on your own device.</p></section>
-<div class="hub">
-<a href="https://math.freenetsave.com/" style="background:#2563eb"><b>Math</b><span>Grades 1 to 12 · 187 topics</span></a>
-<a href="english/" style="background:#0f766e"><b>English</b><span>Grades 1 to 6 · 75 topics · reading, pictures, spelling</span></a>
-<a href="science/" style="background:#7c3aed"><b>Science</b><span>Grades 1 to 8 · 69 topics · Canadian school topics</span></a>
-<a href="french/" style="background:#db2777"><b>French</b><span>Grades 1 to 6 · pictures, words, verbs</span></a>
-<a href="geography/" style="background:#ea580c"><b>Geography</b><span>Grades 1 to 8 · maps, continents, oceans, capitals</span></a>
-<a href="https://freenetsave.com/" style="background:#172033"><b>Free tools</b><span>PDF, calculators, phone checks and more</span></a>
+<main class="hubp">
+<section class="hh"><div class="hh-tx"><h1>Free learning for Grades 1 to 12</h1><p>Free lessons, practice questions, timed challenges and printable worksheets. No sign-up needed.</p><a class="hbtn" href="#grades">Start learning →</a></div></section>
+
+<section id="grades"><h2>Choose your grade</h2><p class="sub">Pick a grade, then a subject. Every subject opens at your grade.</p>
+<div class="gp" id="gp" role="group" aria-label="Grade"></div></section>
+
+<section id="subjects"><h2>Explore subjects</h2><p class="sub" id="subL">Short lessons, practice and worksheets for the main school subjects.</p>
+<div class="sc" id="sc"></div></section>
+
+<div class="two">
+<section><h2>How would you like to learn?</h2>
+<div class="how">
+<a href="#subjects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6c3-1.5 5.5-1.5 8 0v13c-2.5-1.5-5-1.5-8 0z M12 6c2.5-1.5 5-1.5 8 0v13c-3-1.5-5.5-1.5-8 0"/></svg><b>Learn</b><span>Easy-to-follow lessons</span></a>
+<a href="#subjects"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12l7-7 M16 5h3v3"/></svg><b>Practice</b><span>Check your understanding</span></a>
+<a href="#subjects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5 M7 17H5v-7h14v7h-2 M7 14h10v6H7z"/></svg><b>Worksheets</b><span>Printable pages with answer keys</span></a>
+</div></section>
+<section class="pop"><h2>⭐ Popular grades</h2><p class="sub">Quick links to pages people open most.</p>
+<div class="pl">
+<a href="https://math.freenetsave.com/#g3">Grade 3 Math →</a><a href="science/#g3">Grade 3 Science →</a>
+<a href="https://math.freenetsave.com/#g5">Grade 5 Math →</a><a href="science/#g6">Grade 6 Science →</a>
+<a href="english/#g1">Grade 1 English →</a><a href="geography/#g8">Grade 8 Geography →</a>
+</div></section>
 </div>
-<p class="note">Want a subject or topic added? Use "Suggest a topic" at the top.</p>
+
+<section class="pt"><b>👪 For parents and teachers</b><span>Free learning pages that follow the topics taught in Canadian schools, with lessons, practice questions and printable worksheets. No accounts, no ads to sign up for, and progress stays on the student's own device.</span><a href="https://freenetsave.com/about/">Learn more →</a></section>
 </main>
+<script>
+/* subject list: change "to" when a subject gets more grades */
+var SUBJ=[{n:"Math",u:"https://math.freenetsave.com/",to:12,c:"#2563eb",b:"math-older"},{n:"English",u:"english/",to:8,c:"#0f8f7f",b:"english-older"},{n:"Science",u:"science/",to:12,c:"#7c3aed",b:"science-older"},{n:"French",u:"french/",to:8,c:"#db2777",b:"french-older"},{n:"Geography",u:"geography/",to:9,c:"#ea580c",b:"geography-older"}];
+(function(){var g=0,gp=document.getElementById("gp"),sc=document.getElementById("sc");
+function draw(){[].forEach.call(gp.children,function(b){b.setAttribute("aria-pressed",String(+b.dataset.g===g));});
+ document.getElementById("subL").textContent=g?"Subjects for Grade "+g+". Tap one to start.":"Short lessons, practice and worksheets for the main school subjects.";
+ sc.innerHTML="";SUBJ.forEach(function(s){var ok=!g||g<=s.to,a=document.createElement(ok?"a":"div");a.className="card"+(ok?"":" off");if(ok)a.href=s.u+(g?"#g"+g:"");
+  a.style.backgroundImage="linear-gradient(90deg,"+s.c+" 0,"+s.c+" 38%,rgba(255,255,255,0) 72%),url(assets/banners/"+s.b+".jpg?v=1)";a.style.backgroundColor=s.c;
+  var b=document.createElement("b");b.textContent=s.n;var sp=document.createElement("span");sp.textContent=ok?(g?"Grade "+g:"Grades 1 to "+s.to):"Grades 1 to "+s.to+" for now";var e=document.createElement("em");e.textContent=ok?"Start learning →":"Not ready for Grade "+g+" yet";a.appendChild(b);a.appendChild(sp);a.appendChild(e);sc.appendChild(a);});}
+for(var i=1;i<=12;i++){var b=document.createElement("button");b.type="button";b.textContent="Grade "+i;b.dataset.g=i;b.setAttribute("aria-pressed","false");b.onclick=function(){var v=+this.dataset.g;g=g===v?0:v;draw();if(g)try{document.getElementById("subjects").scrollIntoView({behavior:"smooth",block:"start"});}catch(e){}};gp.appendChild(b);}
+draw();})();
+</script>
+
 <footer class="ft"><div class="ft-in"><div><a href="https://freenetsave.com/">freenetsave.com</a><a href="https://freenetsave.com/about/">About</a><a href="https://freenetsave.com/privacy-policy/">Privacy</a><a href="https://freenetsave.com/contact/">Contact</a></div><span>© 2026 freenetsave.com</span></div></footer>
 <script>(function(){function orig(){var h=location.hostname,m=h.match(/^(.*)\.translate\.goog$/);if(!m)return location.href.split("#")[0];var host=m[1].replace(/--/g,"\u0000").replace(/-/g,".").replace(/\u0000/g,"-");return "https://"+host+location.pathname;}document.addEventListener("change",function(e){var s=e.target;if(!s.classList||!s.classList.contains("fns-lang")||!s.value)return;var u=orig();top.location.href=s.value==="en"?u:"https://translate.google.com/translate?sl=en&tl="+s.value+"&u="+encodeURIComponent(u);});})();</script>
 <script src="/sitenav.js?v=1"></script>
