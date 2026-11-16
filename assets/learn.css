@@ -296,3 +296,18 @@ main{max-width:1240px;margin:0 auto;padding:26px 4% 56px}
 
 .q span{display:block}
 .syms i{font-family:Georgia,serif}
+
+/* pictures and fun */
+.q .pic{display:block;font-weight:400;font-size:clamp(56px,15vw,100px);line-height:1.2;letter-spacing:.04em;margin:0 0 6px;text-align:center}
+.opts:has(button.emo){display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.exq .pic,.sheet .pic{font-weight:400;font-size:34px;letter-spacing:.05em}
+.opts button.emo{font-size:46px;min-height:92px;font-weight:400}
+.opts button.right{animation:fnspop .45s ease}
+@keyframes fnspop{0%{transform:scale(1)}45%{transform:scale(1.08)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.opts button.right{animation:none}}
+@media print{.fns-snd{display:none!important}}
+.hear{font:inherit;font-size:16px;font-weight:700;border:0;border-radius:999px;background:#fff;color:#1d4ed8;padding:9px 16px;margin:0 0 4px;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.hear:hover,.hear:focus-visible{background:#eaf1ff}
+@media print{.hear{display:none!important}}
+.q .psg{display:block;font-size:17px;font-weight:500;line-height:1.55;letter-spacing:0;text-align:left;background:rgba(255,255,255,.14);border-radius:14px;padding:12px 14px;margin:0 0 12px}
+.exq .psg,.sheet .psg{display:block;font-size:14px;font-weight:400;line-height:1.5;margin:0 0 6px}

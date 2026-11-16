@@ -4,10 +4,11 @@ window.LEARN=(function(){
 var G={},cur=0;
 function E(s){return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
 function grade(g){cur=g;G[g]=[];}
-function T(c,t,d,i,prompt,lesson,items){
+function T(c,t,d,i,prompt,lesson,items,v,psg){
+  var pre=psg?'<div class="psg">'+E(psg)+'</div>':'';
   var qs=items.map(function(s){var p=s.split("|");var o=[p[1],p[2],p[3],p[4]].filter(function(x){return x!==undefined&&x!=="";});
-    return {q:(p[0]?"<span>"+E(p[0])+"</span>":"")+(prompt?"<small>"+E(prompt)+"</small>":""),a:p[1],o:o,h:p[5]||""};});
-  G[cur].push({c:c,t:t,d:d,i:i,l:lesson,n:qs.length,f:function(){var q=qs[Math.floor(Math.random()*qs.length)];return {q:q.q,a:q.a,o:q.o.slice(),h:q.h};}});
+    return {q:pre+(p[0]?"<span>"+E(p[0]).replace(/\{([^}]+)\}/g,'<b class="pic">$1</b>')+"</span>":"")+(prompt?"<small>"+E(prompt)+"</small>":""),a:p[1],o:o,h:p[5]||""};});
+  G[cur].push({c:c,t:t,d:d,i:i,l:lesson,n:qs.length,f:function(){var q=qs[Math.floor(Math.random()*qs.length)];return {q:q.q,a:q.a,o:q.o.slice(),h:q.h,v:v||""};}});
 }
 
 /* ===== Grade 1 ===== */
@@ -241,5 +242,5 @@ T("Living things","Cells at work","Diffusion, osmosis and the microscope","🔬"
  ["Substances move into and out of cells through the cell membrane.", "Diffusion is the movement of particles from where there are many to where there are few. Osmosis is the diffusion of water through a membrane.", "Cells form tissues, tissues form organs, and organs form organ systems."],
  ["What is the movement of water through a membrane called?|Osmosis|Respiration|Digestion|Mitosis", "What is the movement of particles from high to low concentration called?|Diffusion|Osmosis only|Filtration|Absorption", "Which part of a cell lets some substances through and blocks others?|Cell membrane|Nucleus|Vacuole|Ribosome", "What is the correct order from smallest to largest?|Cell, tissue, organ, organ system|Organ, tissue, cell, system|Tissue, cell, organ, system|Cell, organ, tissue, system", "What stores water and food in a plant cell?|Vacuole|Nucleus|Chloroplast|Mitochondrion", "Which part of a microscope do you look through?|Eyepiece|Stage|Base|Mirror", "What happens to a plant cell placed in very salty water?|It loses water and shrinks|It swells and bursts|Nothing|It divides", "What do red blood cells carry?|Oxygen|Messages|Food only|Bacteria", "Which cells carry messages around the body?|Nerve cells|Red blood cells|Skin cells|Fat cells", "What do we call a membrane that lets only some things through?|Selectively permeable|Waterproof|Solid|Elastic"]);
 
-return {subject:"Science",site:"learn.freenetsave.com",grades:G};
+return {subject:"Science",site:"learn.freenetsave.com",voice:"",grades:G};
 })();

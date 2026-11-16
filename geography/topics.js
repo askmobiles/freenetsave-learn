@@ -4,10 +4,11 @@ window.LEARN=(function(){
 var G={},cur=0;
 function E(s){return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
 function grade(g){cur=g;G[g]=[];}
-function T(c,t,d,i,prompt,lesson,items){
+function T(c,t,d,i,prompt,lesson,items,v,psg){
+  var pre=psg?'<div class="psg">'+E(psg)+'</div>':'';
   var qs=items.map(function(s){var p=s.split("|");var o=[p[1],p[2],p[3],p[4]].filter(function(x){return x!==undefined&&x!=="";});
-    return {q:(p[0]?"<span>"+E(p[0])+"</span>":"")+(prompt?"<small>"+E(prompt)+"</small>":""),a:p[1],o:o,h:p[5]||""};});
-  G[cur].push({c:c,t:t,d:d,i:i,l:lesson,n:qs.length,f:function(){var q=qs[Math.floor(Math.random()*qs.length)];return {q:q.q,a:q.a,o:q.o.slice(),h:q.h};}});
+    return {q:pre+(p[0]?"<span>"+E(p[0]).replace(/\{([^}]+)\}/g,'<b class="pic">$1</b>')+"</span>":"")+(prompt?"<small>"+E(prompt)+"</small>":""),a:p[1],o:o,h:p[5]||""};});
+  G[cur].push({c:c,t:t,d:d,i:i,l:lesson,n:qs.length,f:function(){var q=qs[Math.floor(Math.random()*qs.length)];return {q:q.q,a:q.a,o:q.o.slice(),h:q.h,v:v||""};}});
 }
 
 /* ===== Grade 1 ===== */
@@ -88,5 +89,5 @@ T("Maps","Time zones and modern maps","Clocks around the world, GPS and contour 
  ["The Earth turns 360 degrees in 24 hours, so there are 24 main time zones, each about 15 degrees wide.", "Places to the east are ahead in time. Places to the west are behind.", "Contour lines on a map join places of the same height. GPS uses satellites to find your position."],
  ["How many main time zones does the Earth have?|24|12|36|48", "About how many degrees of longitude wide is one time zone?|15|10|24|30", "Through which place does the line for Greenwich Mean Time run?|London, United Kingdom|New York, United States|Tokyo, Japan|Sydney, Australia", "If you travel east, what happens to the time?|It gets later|It gets earlier|It stays the same|It stops", "What do contour lines on a map show?|Height of the land|Rainfall|Population|Borders", "What does it mean when contour lines are close together?|The slope is steep|The land is flat|There is a river|There is a road", "What does GPS use to find a position?|Satellites|Compasses|Radio towers only|Weather balloons", "Where does the date change when you cross it?|International Date Line|Equator|Prime meridian|Tropic of Capricorn", "What do we call a map that shows the shape and height of the land?|Topographic map|Political map|Road map|Climate map", "When it is noon in London, is it morning or evening in Toronto?|Morning|Evening"]);
 
-return {subject:"Geography",site:"learn.freenetsave.com",grades:G};
+return {subject:"Geography",site:"learn.freenetsave.com",voice:"",grades:G};
 })();
