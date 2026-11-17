@@ -46,6 +46,9 @@ T("Words","Fruits and vegetables","La pomme, la carotte …","🍓","What is thi
 T("Words","Shapes and sizes","Grand, petit, le cercle …","🔺","What does this mean in English?",
  ["Grand means big and petit means small.", "Le cercle is a circle, le carré is a square and le triangle is a triangle.", "Long means long and court means short."],
  ["grand|big|small|round|long", "petit|small|big|short|pretty", "le cercle|circle|square|star|heart", "le carré|square|circle|triangle|card", "le triangle|triangle|square|circle|star", "l'étoile|star|heart|circle|moon", "le cœur|heart|star|square|colour", "long|long|short|wide|round", "court|short|long|big|fast", "rond|round|square|red|tall"],"q");
+T("Words","Getting around","Le vélo, l'autobus, le train …","🚲","What is this in English?",
+ ["Le vélo is a bike and la voiture is a car.", "L'autobus is a bus and le train is a train.", "L'avion flies in the sky and le bateau goes on the water."],
+ ["le vélo|the bike|the car|the boat|the train", "la voiture|the car|the bike|the plane|the bus", "l'autobus|the bus|the train|the truck|the boat", "le train|the train|the plane|the bike|the car", "l'avion|the plane|the boat|the bus|the truck", "le bateau|the boat|the plane|the car|the train", "le camion|the truck|the bus|the bike|the boat", "la moto|the motorcycle|the car|the truck|the plane", "le métro|the subway|the bus|the boat|the bike", "à pied|on foot|by car|by bus|by plane"],"q");
 
 /* ===== Grade 2 ===== */
 grade(2);
@@ -76,6 +79,9 @@ T("Words","Wild animals","Le lion, l'ours, le castor …","🦁","Which animal i
 T("Words","Feelings","Content, triste, fatigué …","😊","What does this mean in English?",
  ["Je suis means I am: Je suis content. Je suis triste.", "For hungry, thirsty, hot, cold and scared, French uses J'ai, which means I have.", "J'ai faim means I am hungry. J'ai soif means I am thirsty."],
  ["Je suis content.|I am happy.|I am sad.|I am tired.|I am angry.", "Je suis triste.|I am sad.|I am happy.|I am sick.|I am late.", "Je suis fatigué.|I am tired.|I am hungry.|I am angry.|I am happy.", "Je suis fâché.|I am angry.|I am tired.|I am sad.|I am scared.", "Je suis malade.|I am sick.|I am sad.|I am cold.|I am bad.", "J'ai faim.|I am hungry.|I am thirsty.|I am cold.|I am tired.", "J'ai soif.|I am thirsty.|I am hungry.|I am hot.|I am sick.", "J'ai peur.|I am scared.|I am sad.|I am cold.|I am hungry.", "J'ai froid.|I am cold.|I am hot.|I am scared.|I am thirsty.", "J'ai chaud.|I am hot.|I am cold.|I am hungry.|I am happy."],"q");
+T("Words","Opposites","Grand et petit, chaud et froid …","↔️","What does this mean in English?",
+ ["Grand means big and petit means small.", "Chaud means hot and froid means cold.", "Many words come in pairs of opposites, like ouvert (open) and fermé (closed)."],
+ ["grand|big|small|cold|sad", "petit|small|big|hot|old", "chaud|hot|cold|big|slow", "froid|cold|hot|small|fast", "rapide|fast|slow|open|clean", "lent|slow|fast|closed|dirty", "ouvert|open|closed|full|young", "fermé|closed|open|empty|old", "propre|clean|dirty|slow|small", "sale|dirty|clean|fast|big", "content|happy|sad|cold|closed", "triste|sad|happy|hot|open"],"q");
 
 /* ===== Grade 3 ===== */
 grade(3);
@@ -109,6 +115,9 @@ T("Time","What time is it?","Il est deux heures","🕑","What time is it?",
 T("First words","Classroom phrases","Écoutez, asseyez-vous, levez la main …","🏫","What does this mean in English?",
  ["Écoutez means listen and regardez means look.", "Asseyez-vous means sit down and levez-vous means stand up.", "Levez la main means put up your hand."],
  ["Écoutez.|Listen.|Look.|Write.|Read.", "Regardez.|Look.|Listen.|Repeat.|Sit down.", "Asseyez-vous.|Sit down.|Stand up.|Come here.|Be quiet.", "Levez-vous.|Stand up.|Sit down.|Wash up.|Wake up.", "Levez la main.|Put up your hand.|Wash your hands.|Clap your hands.|Open your book.", "Ouvrez le livre.|Open the book.|Close the book.|Read the book.|Find the book.", "Fermez la porte.|Close the door.|Open the door.|Lock the gate.|Go outside.", "Répétez.|Repeat.|Answer.|Remember.|Reply later.", "Silence, s'il vous plaît.|Quiet, please.|Sit, please.|Thank you very much.|Slowly, please.", "Je ne comprends pas.|I do not understand.|I do not know him.|I am not coming.|I cannot hear.", "Est-ce que je peux aller aux toilettes ?|May I go to the washroom?|Where is the washroom?|Is the washroom clean?|May I get a drink?"],"q");
+T("Words","Action words","Manger, dormir, jouer …","🏃","What does this mean in English?",
+ ["A verb is an action word. Manger means to eat and boire means to drink.", "Lire means to read and écrire means to write.", "Jouer means to play, courir means to run and dormir means to sleep."],
+ ["manger|to eat|to drink|to sleep|to run", "boire|to drink|to eat|to read|to play", "dormir|to sleep|to run|to sing|to eat", "courir|to run|to walk|to sleep|to write", "lire|to read|to write|to sing|to listen", "écrire|to write|to read|to draw|to play", "chanter|to sing|to dance|to run|to read", "jouer|to play|to eat|to sleep|to walk", "marcher|to walk|to run|to drink|to sing", "regarder|to look at|to listen to|to write|to eat", "écouter|to listen to|to look at|to read|to play", "dessiner|to draw|to write|to sing|to sleep"],"q");
 
 /* ===== Grade 4 ===== */
 grade(4);
@@ -142,6 +151,9 @@ T("Grammar","Je, tu, il, elle, nous, vous","Who is doing the action?","je","What
 T("Words","Nature","L'arbre, la rivière, la montagne …","🌲","What is this in English?",
  ["L'arbre is the tree and la fleur is the flower.", "La rivière is the river and le lac is the lake.", "La montagne is the mountain and la forêt is the forest."],
  ["l'arbre|the tree|the grass|the branch|the garden", "la fleur|the flower|the floor|the leaf|the fruit", "la rivière|the river|the lake|the sea|the road", "le lac|the lake|the river|the milk|the pond", "la montagne|the mountain|the hill|the forest|the island", "la forêt|the forest|the field|the farm|the flower", "le ciel|the sky|the sun|the sea|the cloud", "le soleil|the sun|the soil|the moon|the star", "la lune|the moon|the sun|the light|the lake", "l'étoile|the star|the moon|the sky|the storm", "la feuille|the leaf|the flower|the field|the girl", "la mer|the sea|the mother|the lake|the river"],"q");
+T("Words","Music and art","La guitare, le piano, dessiner …","🎸","What does this mean in English?",
+ ["La musique is music. La guitare, le piano and le violon are instruments.", "Le tambour is a drum and la flûte is a flute.", "Chanter means to sing, danser means to dance and peindre means to paint."],
+ ["la musique|music|art|dance|song", "la guitare|the guitar|the piano|the drum|the flute", "le piano|the piano|the violin|the guitar|the drum", "le tambour|the drum|the flute|the piano|the violin", "le violon|the violin|the guitar|the flute|the drum", "la flûte|the flute|the drum|the guitar|the piano", "la chanson|the song|the dance|the drawing|the paint", "danser|to dance|to sing|to paint|to draw", "peindre|to paint|to dance|to sing|to play", "le dessin|the drawing|the song|the music|the dance", "la peinture|the paint|the brush|the paper|the song", "le pinceau|the paintbrush|the pencil|the paint|the paper"],"q");
 
 /* ===== Grade 5 ===== */
 grade(5);
@@ -175,6 +187,9 @@ T("Words","Describing people","Grand, gentil, drôle …","🙂","What does this
 T("Numbers","Big numbers","Soixante-dix, quatre-vingts, cent, mille","1000","Which number is this?",
  ["Soixante-dix is 70, which is sixty plus ten. Quatre-vingts is 80, which is four twenties.", "Quatre-vingt-dix is 90, which is four twenties plus ten.", "Cent is 100 and mille is 1,000."],
  ["soixante-dix|70|60|16|17", "quatre-vingts|80|24|40|90", "quatre-vingt-dix|90|80|94|19", "cent|100|1,000|10|50", "mille|1,000|100|1,000,000|10", "soixante-quinze|75|65|70|15", "quatre-vingt-cinq|85|45|95|25", "deux cents|200|102|2,000|20", "cinq cents|500|50|5,000|105", "soixante et onze|71|61|70|17", "quatre-vingt-dix-neuf|99|89|98|49", "trois mille|3,000|300|30|13,000"],"q");
+T("Words","Time words","Aujourd'hui, demain, toujours …","⏰","What does this mean in English?",
+ ["Aujourd'hui means today, demain means tomorrow and hier means yesterday.", "Toujours means always, souvent means often and jamais means never.", "Tôt means early and tard means late."],
+ ["aujourd'hui|today|tomorrow|yesterday|always", "demain|tomorrow|today|yesterday|never", "hier|yesterday|tomorrow|today|often", "maintenant|now|later|never|early", "toujours|always|never|sometimes|late", "jamais|never|always|often|now", "souvent|often|never|early|yesterday", "parfois|sometimes|always|never|tomorrow", "tôt|early|late|now|often", "tard|late|early|today|always", "bientôt|soon|late|never|yesterday", "déjà|already|soon|never|tomorrow"],"q");
 
 /* ===== Grade 6 ===== */
 grade(6);
@@ -205,6 +220,9 @@ T("Words","Shopping","Combien ça coûte ? C'est cher …","🛒","What does thi
 T("Words","Health","J'ai mal à la tête, le médecin …","🤒","What does this mean in English?",
  ["J'ai mal à la tête means I have a headache.", "Je suis malade means I am sick.", "Le médecin is the doctor and le médicament is the medicine."],
  ["J'ai mal à la tête.|I have a headache.|I have a bad idea.|I hurt my hand.|I am tired.", "J'ai mal au ventre.|I have a stomach ache.|I am hungry.|I have a sore foot.|I am full.", "Je suis malade.|I am sick.|I am sad.|I am mad.|I am late.", "J'ai de la fièvre.|I have a fever.|I am afraid.|I have a cold.|I feel fine.", "le médecin|the doctor|the medicine|the nurse|the dentist", "le médicament|the medicine|the doctor|the hospital|the bandage", "l'hôpital|the hospital|the hotel|the hostel|the pharmacy", "J'ai mal aux dents.|I have a toothache.|I have ten.|I have a sore back.|I hurt my finger.", "Je suis fatigué.|I am tired.|I am finished.|I am sick.|I am hungry.", "la pharmacie|the pharmacy|the farm|the doctor|the clinic", "Ça va mieux.|I feel better.|It is worse.|That is mine.|It goes fast.", "un rhume|a cold|a room|a fever|a cough"],"q");
+T("Grammar","The verb prendre (to take)","Je prends, nous prenons …","🚌","Which word fits?",
+ ["Prendre means to take. It is an irregular verb.", "Je prends, tu prends, il prend, elle prend.", "Nous prenons, vous prenez, ils prennent, elles prennent."],
+ ["Je ___ l'autobus. (prendre)|prends|prend|prenons|prennent", "Tu ___ ton sac. (prendre)|prends|prend|prenez|prennent", "Il ___ une pomme. (prendre)|prend|prends|prenons|prenez", "Elle ___ le train. (prendre)|prend|prends|prennent|prenez", "Nous ___ le métro. (prendre)|prenons|prenez|prennent|prends", "Vous ___ un café. (prendre)|prenez|prenons|prennent|prend", "Ils ___ des photos. (prendre)|prennent|prenons|prend|prenez", "Elles ___ leur temps. (prendre)|prennent|prenez|prends|prend", "Mon père ___ la voiture. (prendre)|prend|prends|prenons|prennent", "Mes amis ___ le dîner à midi. (prendre)|prennent|prend|prenez|prenons"],"f");
 
 /* ===== Grade 7 ===== */
 grade(7);
@@ -241,6 +259,9 @@ T("Words","Chores at home","Faire la vaisselle, ranger …","🧹","What does th
 T("Words","Canada in French","Les provinces, la capitale, l'océan …","🍁","What is this in English?",
  ["Le Canada has dix provinces et trois territoires.", "La capitale is the capital. Ottawa est la capitale du Canada.", "Many province names change in French: la Colombie-Britannique is British Columbia."],
  ["la Colombie-Britannique|British Columbia|Colombia|Great Britain|New Brunswick", "la Nouvelle-Écosse|Nova Scotia|New Scotland Yard|New Brunswick|Newfoundland", "le Nouveau-Brunswick|New Brunswick|Nova Scotia|Newfoundland|Nunavut", "Terre-Neuve-et-Labrador|Newfoundland and Labrador|New Brunswick and Labrador|Nova Scotia|Northwest Territories", "l'Île-du-Prince-Édouard|Prince Edward Island|Vancouver Island|Prince Rupert|Baffin Island", "les Territoires du Nord-Ouest|the Northwest Territories|the North Pole|Northern Ontario|the Yukon", "la capitale|the capital|the captain|the chapter|the city hall", "l'océan Atlantique|the Atlantic Ocean|the Arctic Ocean|the Pacific Ocean|Lake Atlantic", "les États-Unis|the United States|the United Nations|the states of Canada|the islands", "une province|a province|a prince|a proof|a town", "le drapeau|the flag|the map|the leaf|the country", "la feuille d'érable|the maple leaf|the oak tree|the paper flag|the pine cone"],"q");
+T("Grammar","The verb venir (to come)","Je viens, nous venons …","🚪","Which word fits?",
+ ["Venir means to come. It is an irregular verb.", "Je viens, tu viens, il vient, elle vient.", "Nous venons, vous venez, ils viennent, elles viennent."],
+ ["Je ___ de Toronto. (venir)|viens|vient|venons|viennent", "Tu ___ avec nous? (venir)|viens|vient|venez|viennent", "Il ___ à l'école à pied. (venir)|vient|viens|venons|venez", "Elle ___ du Québec. (venir)|vient|viens|viennent|venez", "Nous ___ ce soir. (venir)|venons|venez|viennent|viens", "Vous ___ d'où? (venir)|venez|venons|viennent|vient", "Ils ___ en autobus. (venir)|viennent|venons|vient|venez", "Elles ___ demain. (venir)|viennent|venez|viens|vient", "Ma tante ___ dimanche. (venir)|vient|viens|venons|viennent", "Mes cousins ___ pour mon anniversaire. (venir)|viennent|vient|venez|venons"],"f");
 
 /* ===== Grade 8 ===== */
 grade(8);
@@ -274,6 +295,9 @@ T("Grammar","Giving commands","Mange ! Écoutez ! Allons-y !","!","What does thi
 T("Words","The environment","Recycler, la pollution, l'énergie …","♻️","What does this mean in English?",
  ["L'environnement is the environment.", "Recycler means to recycle and gaspiller means to waste.", "La pollution is pollution and les déchets are garbage or waste."],
  ["recycler|to recycle|to ride a bike|to return|to repeat", "gaspiller|to waste|to gasp|to spill|to save", "les déchets|waste or garbage|the dishes|the debts|the forests", "la pollution|pollution|the police|politeness|the population", "l'énergie solaire|solar energy|the solar system|only energy|sunlight hours", "le réchauffement climatique|global warming|the weather forecast|a heating system|the climate zone", "protéger|to protect|to project|to pollute|to promise", "économiser l'eau|to save water|to waste water|to boil water|to sell water", "la planète|the planet|the plant|the plan|the plate", "le bac de recyclage|the recycling bin|the back door|the garbage truck|the compost pile", "éteindre la lumière|to turn off the light|to turn on the light|to change the bulb|to stretch", "les espèces en danger|endangered species|dangerous spaces|safe places|special dangers"],"q");
+T("Grammar","Depuis, pendant and il y a","Since, for and ago","⏳","Which word fits?",
+ ["Depuis is used with the present tense for something that started in the past and is still going on: J'habite ici depuis trois ans.", "Pendant tells how long something lasted: J'ai dormi pendant huit heures.", "Il y a with a length of time means ago: Il est parti il y a une heure."],
+ ["J'habite ici ___ trois ans. (and I still live here)|depuis|pendant|il y a|dans", "J'ai dormi ___ huit heures. (how long it lasted)|pendant|depuis|il y a|dans", "Il est parti ___ une heure. (ago)|il y a|depuis|pendant|dans", "Elle étudie le français ___ 2020. (and she still does)|depuis|pendant|il y a|en", "Nous avons marché ___ deux heures. (how long it lasted)|pendant|depuis|il y a|dans", "J'ai vu ce film ___ deux semaines. (ago)|il y a|depuis|pendant|dans", "Il pleut ___ ce matin. (and it is still raining)|depuis|pendant|il y a|dans", "Ils ont voyagé ___ tout l'été. (how long it lasted)|pendant|depuis|il y a|dans", "Mon frère est né ___ dix ans. (ago)|il y a|depuis|pendant|dans", "Je joue au hockey ___ cinq ans. (and I still play)|depuis|pendant|il y a|dans"],"f");
 
 /* ===== Grade 9 ===== */
 grade(9);
@@ -304,6 +328,9 @@ T("Grammar","Asking questions","Est-ce que, qui, où, quand, pourquoi …","?","
 T("Words","Travel and the city","La gare, un billet, tout droit …","🚆","What does this mean in English?",
  ["La gare is the train station and l'aéroport is the airport.", "Un billet is a ticket. Un aller-retour is a return ticket.", "Tout droit means straight ahead. À gauche is left and à droite is right."],
  ["la gare|the train station|the garage|the gate|the garden", "un billet|a ticket|a bill|a ball|a bullet", "un aller-retour|a return ticket|a one-way ticket|a delay|a suitcase", "tout droit|straight ahead|to the right|all right|right now", "à gauche|on the left|on the right|behind|upstairs", "une valise|a suitcase|a valley|a vase|a village", "le centre-ville|downtown|the shopping centre|the town hall|the suburbs", "un passeport|a passport|a password|a port|a pass"],"q");
+T("Grammar","Dire, lire and écrire","Je dis, nous lisons, ils écrivent …","📖","Which word fits?",
+ ["Dire means to say: je dis, tu dis, il dit, nous disons, vous dites, ils disent.", "Lire means to read: je lis, tu lis, il lit, nous lisons, vous lisez, ils lisent.", "Écrire means to write: j'écris, tu écris, il écrit, nous écrivons, vous écrivez, ils écrivent."],
+ ["Je ___ la vérité. (dire)|dis|dit|disons|disent", "Vous ___ bonjour au professeur. (dire)|dites|disez|disons|disent", "Ils ___ que c'est facile. (dire)|disent|dit|dites|disons", "Nous ___ un roman en classe. (lire)|lisons|lisez|lisent|lis", "Elle ___ le journal chaque matin. (lire)|lit|lis|lisons|lisent", "Tu ___ beaucoup de livres. (lire)|lis|lit|lisez|lisent", "J'___ une lettre à ma grand-mère. (écrire)|écris|écrit|écrivons|écrivent", "Nous ___ un courriel. (écrire)|écrivons|écrivez|écrivent|écris", "Ils ___ leurs devoirs. (écrire)|écrivent|écrit|écrivons|écrivez", "Vous ___ très bien. (écrire)|écrivez|écrivons|écrivent|écris", "Il ___ toujours merci. (dire)|dit|dis|disons|dites", "Mes parents ___ le journal. (lire)|lisent|lit|lisons|lisez"],"f");
 
 /* ===== Grade 10 ===== */
 grade(10);
@@ -334,6 +361,9 @@ T("Grammar","The near future and the recent past","Je vais partir, je viens de p
 T("Words","Holidays and free time","Les vacances, la plage, faire du camping …","🏖️","What does this mean in English?",
  ["Les vacances are the holidays. La plage is the beach.", "Faire du camping means to go camping. Se baigner means to go for a swim.", "Un séjour is a stay, and un souvenir is something you bring home."],
  ["les vacances|the holidays|the vaccines|the empty rooms|the neighbours", "la plage|the beach|the page|the place|the plate", "faire du camping|to go camping|to go shopping|to make a camp fire|to go cycling", "se baigner|to go for a swim|to take a bath mat|to get dressed|to sunbathe", "un séjour|a stay|a day|a journey|a diary", "une randonnée|a hike|a random event|a race|a reservation", "se détendre|to relax|to hurry|to get lost|to wake up", "le bord de la mer|the seaside|the edge of the road|the sea monster|the board game"],"q");
+T("Grammar","Ce qui and ce que","What, as in \"what I want\"","💭","Which word fits?",
+ ["Ce qui and ce que both mean \"what\" in the middle of a sentence.", "Ce qui is the subject. It is followed by a verb: Ce qui est important, c'est la santé.", "Ce que is the object. It is followed by a subject and a verb: Je sais ce que tu veux. Before a vowel it becomes ce qu'."],
+ ["Je sais ___ tu veux.|ce que|ce qui|qui|quoi", "___ est important, c'est la santé.|Ce qui|Ce que|Qui|Quoi", "Dis-moi ___ tu penses.|ce que|ce qui|que|dont", "___ m'intéresse, c'est la musique.|Ce qui|Ce que|Que|Quoi", "Je ne comprends pas ___ il dit.|ce qu'|ce qui|qui|quoi", "Elle sait ___ se passe.|ce qui|ce que|que|dont", "___ j'aime, c'est le hockey.|Ce que|Ce qui|Qui|Quoi", "Montre-moi ___ tu as acheté.|ce que|ce qui|qui|quoi", "___ me dérange, c'est le bruit.|Ce qui|Ce que|Que|Dont", "Nous ne savons pas ___ elle fait.|ce qu'|ce qui|qui|quoi"],"f");
 
 /* ===== Grade 11 ===== */
 grade(11);
@@ -364,6 +394,9 @@ T("Grammar","Possessive pronouns","Le mien, la tienne, les nôtres …","mien","
 T("Words","Feelings and opinions","À mon avis, je suis d'accord, inquiet …","💭","What does this mean in English?",
  ["À mon avis means in my opinion. Je suis d'accord means I agree.", "Inquiet means worried, fier means proud and déçu means disappointed.", "Use je pense que or je crois que to give your opinion."],
  ["à mon avis|in my opinion|in my life|at my address|on my advice only", "je suis d'accord|I agree|I am ready|I am a guitarist|I am sorry", "inquiet|worried|quiet|curious|unfair", "fier|proud|fierce|free|faithful", "déçu|disappointed|deceived|decided|delighted", "avoir raison|to be right|to have a reason|to be reasonable|to have a raisin", "avoir tort|to be wrong|to have a cake|to be tired|to be late", "je crois que|I believe that|I grow that|I cross that|I create that"],"q");
+T("Grammar","The futur antérieur","J'aurai fini, elle sera partie …","🔮","Which word fits?",
+ ["The futur antérieur says that something will be finished before another future action.", "It is made with the future of avoir or être and the past participle: j'aurai fini, elle sera partie.", "It often follows quand, dès que or lorsque: Quand j'aurai fini, je sortirai."],
+ ["Quand j'___ fini mes devoirs, je sortirai. (avoir)|aurai|ai|avais|aurais", "Dès qu'elle ___ arrivée, nous mangerons. (être)|sera|est|était|serait", "Quand tu ___ lu ce livre, prête-le-moi. (avoir)|auras|as|avais|aurais", "Nous ___ terminé avant midi. (avoir)|aurons|avons|avions|aurions", "Ils ___ partis avant ton arrivée. (être)|seront|sont|étaient|seraient", "Lorsque vous ___ mangé, nous partirons. (avoir)|aurez|avez|aviez|auriez", "Elle ___ fini son travail demain soir. (avoir)|aura|a|avait|aurait", "Quand ils ___ vu le film, ils comprendront. (avoir)|auront|ont|avaient|auraient", "Je ___ rentré avant huit heures. (être)|serai|suis|étais|serais", "Dès que nous ___ arrivés, je t'appellerai. (être)|serons|sommes|étions|serions"],"f");
 
 /* ===== Grade 12 ===== */
 grade(12);
@@ -397,6 +430,9 @@ T("Grammar","Reading the passé simple","Il fut, elle alla, ils dirent …","fut
 T("Words","Arts and books","Un roman, une pièce, le personnage …","🎭","What does this mean in English?",
  ["Un roman is a novel and une pièce de théâtre is a play.", "Le personnage is a character in a story. L'intrigue is the plot.", "Un écrivain writes books and un tableau is a painting."],
  ["un roman|a novel|a Roman|a romance film|a magazine", "une pièce de théâtre|a play|a theatre seat|a piece of cake|a stage", "le personnage|the character|the person in charge|the staff|the personality test", "l'intrigue|the plot|the secret|the introduction|the trick", "un écrivain|a writer|a screen|a secretary|a printer", "un tableau|a painting|a table|a tablet|a tablecloth", "une œuvre|a work of art|an egg|an opening|an hour", "le dénouement|the ending of the story|the beginning|the title|the knot"],"q");
+T("Grammar","The past infinitive","Après avoir mangé, après être arrivé …","⏮","Which word fits?",
+ ["The past infinitive is avoir or être followed by a past participle: avoir mangé, être arrivé.", "It is used after après when the same person does both actions: Après avoir mangé, il est sorti.", "With être, the past participle agrees with the subject: Après être arrivée, elle a téléphoné."],
+ ["Après ___ mangé, il est sorti.|avoir|être|a|ayant", "Après ___ arrivée, elle a téléphoné.|être|avoir|est|étant", "Après avoir ___ le film, nous avons discuté. (regarder)|regardé|regarder|regardons|regardait", "Après être ___, ils ont dîné. (rentrer)|rentrés|rentrer|rentré|rentrent", "Après ___ fini ses devoirs, elle a joué.|avoir|être|a|ayant", "Après ___ partis, ils ont appelé.|être|avoir|sont|étant", "Merci d'___ venu.|être|avoir|es|étant", "Je regrette d'___ dit cela.|avoir|être|ai|ayant", "Après s'être ___, elle a déjeuné. (lever)|levée|lever|levé|lève", "Après avoir ___ la lettre, il a souri. (lire)|lu|lire|lit|lisait"],"f");
 
 return {subject:"French",site:"learn.freenetsave.com",voice:"fr-FR",grades:G};
 })();
