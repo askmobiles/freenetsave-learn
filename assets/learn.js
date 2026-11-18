@@ -85,7 +85,8 @@ function render(){var q=$("find").value.trim().toLowerCase();$("grades").style.d
 var MD={learn:"See how it works, step by step, with examples.",practice:"Tap the right answer. Each one is explained.",challenge:"60 seconds on the clock. How many can you get?",sheet:"A printable page of questions with an answer key."};
 function setMode(m){mode=m;[].forEach.call($("modes").children,function(b){b.setAttribute("aria-pressed",String(b.dataset.m===m));});$("mdesc").textContent=MD[m];$("plen").style.display=m==="practice"?"":"none";render();}
 function go(){if(mode==="learn"&&sel.pool.length===1)openLearn();else if(mode==="sheet")openSheet();else if(mode==="challenge")startCh();else startPractice();}
-function screen(name){stopClock();$("pick").style.display=name==="pick"?"":"none";["play","done","sheetwrap","learn"].forEach(function(s){$(s).classList.toggle("on",s===name||(s==="sheetwrap"&&name==="sheet"));});document.body.classList.toggle("playing",name==="play");document.body.classList.toggle("inside",name!=="pick");if($("ptabs")){var tn=name==="play"?(ch.on||$("play").classList.contains("ch")?"game":"play"):name;[].forEach.call($("ptabs").children,function(b){b.setAttribute("aria-pressed",String(b.dataset.t===tn));});}
+var onPick=true;function histStep(name){var p=name==="pick";try{if(!p&&onPick)history.pushState({fnsAct:1},"",location.href);}catch(e){}onPick=p;}
+function screen(name){stopClock();histStep(name);$("pick").style.display=name==="pick"?"":"none";["play","done","sheetwrap","learn"].forEach(function(s){$(s).classList.toggle("on",s===name||(s==="sheetwrap"&&name==="sheet"));});document.body.classList.toggle("playing",name==="play");document.body.classList.toggle("inside",name!=="pick");if($("ptabs")){var tn=name==="play"?(ch.on||$("play").classList.contains("ch")?"game":"play"):name;[].forEach.call($("ptabs").children,function(b){b.setAttribute("aria-pressed",String(b.dataset.t===tn));});}
   var nx=sel.pos>-1&&sel.pos<sel.list.length-1?sel.list[sel.pos+1]:null;$("nextT").style.display=nx?"":"none";if(nx)$("nextT").textContent="Next topic: "+nx.t.t;
   var el=$({pick:"pick",play:"play",done:"done",sheet:"sheetwrap",learn:"learn"}[name]);window.scrollTo({top:name==="pick"?0:el.getBoundingClientRect().top+window.pageYOffset-10,behavior:"auto"});}
 /* learn */
@@ -135,7 +136,9 @@ function buildSheet(fresh){var k=+$("sn").value;if(fresh||!sheetQs.length)sheetQ
   if($("skey").checked){h+='<div class="sh-key"><h3>Answer key: '+E(title)+"</h3><ol>";sheetQs.forEach(function(q,i){h+="<li><b>"+(i+1)+".</b> ("+L[q.o.indexOf(q.a)]+") "+E(q.a)+"</li>";});h+="</ol></div>";}
   h+='<p class="sh-foot">Free to print and copy for home and classroom use · '+E(D.site)+"</p>";$("sheet").innerHTML=h;$("sheet").querySelector("h2").textContent=title;}
 /* wiring */
-function toTopics(){screen("pick");render();}
+function rawTopics(){screen("pick");render();}
+function toTopics(){var st=null;try{st=history.state;}catch(e){}if(!onPick&&st&&st.fnsAct){history.back();return;}rawTopics();}
+window.addEventListener("popstate",function(){if(!onPick)rawTopics();});
 (function(){var box=$("grades");Object.keys(G).forEach(function(g){var b=document.createElement("button");b.type="button";b.textContent=g;b.dataset.g=g;b.setAttribute("aria-label","Grade "+g);b.setAttribute("aria-pressed","false");b.onclick=function(){grade=+g;band=null;render();};box.appendChild(b);});})();
 $("find").addEventListener("input",render);
 $("modes").addEventListener("click",function(e){var b=e.target.closest("button");if(b)setMode(b.dataset.m);});
