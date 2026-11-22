@@ -30,7 +30,7 @@ function quiz(root,isTest){if(!root||!POOL.length)return;var N=10,i=0,ok=0,qs=[]
     if(isTest)h+=pass?"You passed. This lesson is complete.":"You need 8 to pass. Read the Learn part again, practise, then retake the test.";else h+=ok>=8?"Strong work. You are ready for the test.":"Keep going. Read the Learn part again, then try another set.";
     h+="</div>";if(isTest||ok<N){h+='<ul class="rev">';log.forEach(function(x,k){if(isTest||!x.r)h+="<li><b>"+(k+1)+". "+esc(x.q.q)+"</b> "+(x.r?"✓ ":"✗ You chose "+esc(x.y)+". ")+"Answer: "+esc(x.q.a)+". "+esc(x.q.h)+"</li>";});h+="</ul>";}
     root.innerHTML=h;var b=el("button","btn2 alt",isTest?"Take the test again":"Practise 10 more");b.type="button";b.style.marginTop="12px";b.onclick=start;root.appendChild(b);
-    if(isTest&&pass){var nb=$("#nextbox");if(nb){nb.hidden=false;nb.scrollIntoView({block:"nearest"});}}}
+    if(isTest&&pass&&window.FNS_HELPER)window.FNS_HELPER.pass();if(isTest&&pass){var nb=$("#nextbox");if(nb){nb.hidden=false;nb.scrollIntoView({block:"nearest"});}}}
   var s=el("button","btn2"+(isTest?" or":""),isTest?"Start the test":"Start practising");s.type="button";s.onclick=start;root.appendChild(s);}
 
 function match(root){if(!root||!L.pairs)return;
