@@ -92,7 +92,7 @@ function screen(name){stopClock();histStep(name);$("pick").style.display=name===
 /* learn */
 function fillSteps(ol,it){ol.innerHTML="";(it.t.l||[]).forEach(function(s){var li=document.createElement("li");li.textContent=s;ol.appendChild(li);});}
 function examples(){var box=$("lex");box.innerHTML="";many(3).forEach(function(q){var d=document.createElement("div");d.className="ex";d.innerHTML='<div class="exq">'+q.q+"</div><p><b>Answer: "+E(q.a)+"</b></p>"+(q.h?"<p>"+E(q.h)+"</p>":"");box.appendChild(d);});}
-function openLearn(){var it=sel.pool[0];$("ltag").textContent="Grade "+it.g+" · "+it.t.c;$("ltitle").textContent=it.t.t;fillSteps($("lsteps"),it);examples();screen("learn");}
+function openLearn(){var it=sel.pool[0];var lp=window.LESSON_PAGES&&window.LESSON_PAGES[it.g+"|"+it.t.t];if(lp){location.href=lp;return;}$("ltag").textContent="Grade "+it.g+" · "+it.t.c;$("ltitle").textContent=it.t.t;fillSteps($("lsteps"),it);examples();screen("learn");}
 function setHelp(on){var ok=!ch.on&&cur&&cur.it&&(cur.it.t.l||[]).length>0;$("help").style.display=ok?"":"none";on=on&&ok;$("help").setAttribute("aria-expanded",String(on));$("helpbox").style.display=on?"block":"none";if(on)fillSteps($("helpbox"),cur.it);}
 /* questions */
 function plain(s){return String(s).replace(/<small>[\s\S]*?<\/small>/g,"").replace(/<[^>]+>/g," ").replace(/\([^)]*\)/g," ").replace(/[^\p{L}\p{N}\s'’.,?!_-]/gu," ").replace(/\s+/g," ").trim();}
