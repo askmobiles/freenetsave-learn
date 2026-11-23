@@ -68,3 +68,5 @@
 .cfilter button.on{border-color:#2563eb;background:#2563eb;color:#fff}
 .cnote{color:#5b6b85;font-size:15px;margin:4px 0 6px}
 .ul li[hidden],.ul[hidden],h2[hidden]{display:none}
+
+.ls-jump{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 8px;font-size:14.5px;color:var(--muted,#5b6b85)}.ls-jump select{font:inherit;font-size:15px;padding:7px 10px;border:1.5px solid var(--line);border-radius:10px;max-width:100%;background:#fff;color:var(--navy)}.ls-steps a.ls-more{background:var(--navy,#172033);color:#fff;border-color:var(--navy,#172033)}.ls-go{display:flex;flex-wrap:wrap;gap:10px}@media print{.ls-jump,#more{display:none!important}}
