@@ -59,3 +59,12 @@
 .ls .seebox{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 16px}
 #see{display:block}
 .ls ul.words{padding-left:0}
+.ctag{display:inline-block;font-size:13.5px;font-weight:700;border-radius:999px;padding:3px 11px;margin:0 0 12px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.ctag.ct-ox,.ctag.ct-x{background:#fff7ed;color:#9a3412;border-color:#fed7aa}
+.ul .ctag{display:inline-block;margin:6px 0 0;font-size:12.5px;padding:2px 9px}
+.cfilter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 6px}
+.cfilter span{font-weight:700;color:#5b6b85}
+.cfilter button{font:inherit;font-size:14.5px;font-weight:700;border:2px solid #dde5f2;background:#fff;border-radius:999px;padding:6px 14px;cursor:pointer;color:#172033}
+.cfilter button.on{border-color:#2563eb;background:#2563eb;color:#fff}
+.cnote{color:#5b6b85;font-size:15px;margin:4px 0 6px}
+.ul li[hidden],.ul[hidden],h2[hidden]{display:none}
