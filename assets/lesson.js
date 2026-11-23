@@ -56,6 +56,43 @@ function challenge(root){if(!root||!L.challenge)return;var solved=0,C=L.challeng
 function see(){var b=$("#seeMore"),out=$("#seeOut");if(!b)return;var n=0;b.onclick=function(){var q=deal(1)[0];out.innerHTML='<div class="ex"><b class="q">'+esc(q.q)+'</b><p class="exans">Answer: '+esc(q.a)+'</p><p>'+esc(q.h)+'</p></div>';if(++n>=1)mark("see",true);};}
 
 function unit(){var o=load();document.querySelectorAll(".ul a[data-id]").forEach(function(a){var r=o[a.getAttribute("data-id")]||{};if(r.test>=8){a.classList.add("isdone");var n=a.querySelector(".num");if(n)n.textContent="✓";var s=a.querySelector(".d");if(s)s.textContent+="  ·  Complete (best test score "+r.test+" out of 10)";}});}
-function init(){if(L){see();quiz($("#try"),false);match($("#play"));quiz($("#test"),true);challenge($("#challenge"));var r=load()[id()]||{};if(r.test>=8){var nb=$("#nextbox");if(nb)nb.hidden=false;}mark("learn",true);}else unit();}
+
+// ---- Printable lesson and worksheet (for teachers, parents and students) ----
+function seeded(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return function(){h^=h<<13;h^=h>>>17;h^=h<<5;return ((h>>>0)%100000)/100000;};}
+function sshuf(a,r){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var LET="abcd",SUB={science:"Science",english:"English",french:"French",geography:"Geography",history:"History"};
+function printView(withAns,noPrint){var r=seeded(L.slug+L.g),old=document.getElementById("fnsPrint");if(old)old.remove();
+  var d=el("div");d.id="fnsPrint";var subj=SUB[L.subject]||"",h1=($("main h1")||{}).textContent||L.topic,lede=($("main .lede")||{}).textContent||"";
+  var h='<div class="pv-top"><span>Grade '+L.g+' '+subj+'</span><span>Name: ______________________  Date: ____________</span></div><h1>'+esc(h1)+'</h1><p class="pv-lede">'+esc(lede)+'</p>';
+  var ln=$("#learn");if(ln){var c=ln.cloneNode(true);c.querySelectorAll(".fnsL,small").forEach(function(x){x.remove();});c.removeAttribute("id");h+='<div class="pv-sec">'+c.innerHTML.replace(/<h2[^>]*>.*?<\/h2>/,"<h2>Learn</h2>")+'</div>';}
+  var se=$("#see .seebox");if(se)h+='<div class="pv-sec"><h2>Real-life examples</h2>'+se.innerHTML+'</div>';
+  var Q=(L.items||[]).map(parse),key=[];
+  h+='<div class="pv-sec pv-q"><h2>Questions <small>Circle the best answer.</small></h2><ol>';
+  Q.forEach(function(q,n){var o=sshuf(q.o,r);key.push({n:n+1,l:LET[o.indexOf(q.a)],a:q.a,h:q.h});h+='<li><p>'+esc(q.q)+'</p><div class="pv-opts">'+o.map(function(x,k){return '<span>'+LET[k]+') '+esc(x)+'</span>';}).join("")+'</div></li>';});
+  h+='</ol></div>';
+  var mk=[];if(L.pairs){var R=sshuf(L.pairs.map(function(p,i){return {t:p[1],i:i};}),r);
+    h+='<div class="pv-sec pv-m"><h2>Match <small>Write the letter of the match on the line.</small></h2><div class="pv-cols"><ol>'+L.pairs.map(function(p){return '<li>'+esc(p[0])+' <span class="pv-line">____</span></li>';}).join("")+'</ol><ol type="A">'+R.map(function(x){return '<li>'+esc(x.t)+'</li>';}).join("")+'</ol></div></div>';
+    L.pairs.forEach(function(p,i){mk.push((i+1)+" → "+"ABCDEFGHIJ".charAt(R.findIndex(function(x){return x.i===i;})));});}
+  var ck=[];if(L.challenge){h+='<div class="pv-sec pv-q"><h2>Challenge <small>Choose an answer, then explain your thinking.</small></h2><ol>';
+    L.challenge.map(parse).forEach(function(q,n){var o=sshuf(q.o,r);ck.push({n:n+1,l:LET[o.indexOf(q.a)],a:q.a,h:q.h});h+='<li><p>'+esc(q.q)+'</p><div class="pv-opts">'+o.map(function(x,k){return '<span>'+LET[k]+') '+esc(x)+'</span>';}).join("")+'</div><div class="pv-write">Explain: ____________________________________________________________<br>____________________________________________________________________</div></li>';});h+='</ol></div>';}
+  if(withAns){h+='<div class="pv-key"><h2>Answer key: '+esc(h1)+'</h2><h3>Questions</h3><ol class="pv-k">'+key.map(function(k){return '<li><b>'+k.l+') '+esc(k.a)+'</b>'+(k.h?' — '+esc(k.h):'')+'</li>';}).join("")+'</ol>';
+    if(mk.length)h+='<h3>Match</h3><p>'+mk.join(" · ")+'</p>';
+    if(ck.length)h+='<h3>Challenge</h3><ol class="pv-k">'+ck.map(function(k){return '<li><b>'+k.l+') '+esc(k.a)+'</b>'+(k.h?' — '+esc(k.h):'')+'</li>';}).join("")+'</ol>';h+='</div>';}
+  h+='<p class="pv-foot">Free lesson from learn.freenetsave.com/'+esc(L.unit)+'/'+esc(L.slug)+'/ · may be copied for classroom and home use</p>';
+  d.innerHTML=h;document.body.appendChild(d);document.documentElement.classList.add("fnsPrinting");
+  var done=function(){document.documentElement.classList.remove("fnsPrinting");window.removeEventListener("afterprint",done);};window.addEventListener("afterprint",done);
+  if(!noPrint)setTimeout(function(){window.print();},50);}
+function printBar(){var lede=$("main .lede");if(!lede||!L.items)return;
+  var st=el("style");st.textContent='.pbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}.pbar button{font:inherit;font-size:14.5px;font-weight:750;border:2px solid #dde5f2;background:#fff;color:#1d4ed8;border-radius:999px;padding:6px 14px;cursor:pointer}.pbar button:hover{border-color:#2563eb}#fnsPrint{display:none}'+
+  '@media print{@page{margin:14mm}html.fnsPrinting body>*:not(#fnsPrint){display:none!important}html.fnsPrinting #fnsPrint{display:block!important;font-family:Georgia,"Times New Roman",serif;color:#000;font-size:11.5pt;line-height:1.45}'+
+  '#fnsPrint h1{font-size:22pt;margin:6pt 0 2pt;color:#000}#fnsPrint h2{font-size:15pt;margin:14pt 0 6pt;border-bottom:1.5pt solid #000;padding-bottom:2pt;color:#000}#fnsPrint h2 small{font-size:10.5pt;font-weight:400;margin-left:6pt}#fnsPrint h3{font-size:12.5pt;margin:10pt 0 4pt}'+
+  '#fnsPrint .pv-top{display:flex;justify-content:space-between;font-size:10.5pt;border-bottom:1pt solid #999;padding-bottom:4pt}#fnsPrint .pv-lede{font-style:italic;margin:0 0 6pt}#fnsPrint .key{border:1.2pt solid #000;border-radius:6pt;padding:4pt 8pt;margin:6pt 0;background:none!important}'+
+  '#fnsPrint .fig svg{max-width:100%;max-height:230pt;display:block;margin:6pt auto}#fnsPrint .cards{display:grid!important;grid-template-columns:1fr 1fr;gap:4pt 12pt}#fnsPrint .cards>*{border:none!important;background:none!important;box-shadow:none!important;padding:0!important;display:block}#fnsPrint .seebox{display:block}#fnsPrint .ex{margin:4pt 0;border:none;background:none;padding:0}#fnsPrint .ex .q{display:block;font-size:12pt!important;font-weight:700;color:#000;margin:0}#fnsPrint .ex p{color:#000;margin:0 0 4pt}#fnsPrint h2,#fnsPrint h3{break-after:avoid}#fnsPrint .pv-m{break-inside:avoid}#fnsPrint .words li{color:#000}#fnsPrint .words b{color:#000}'+
+  '#fnsPrint .pv-q ol{padding-left:18pt}#fnsPrint .pv-q li{break-inside:avoid;margin:0 0 8pt}#fnsPrint .pv-q p{margin:0 0 2pt}#fnsPrint .pv-opts{display:grid;grid-template-columns:1fr 1fr;gap:1pt 14pt;padding-left:6pt}#fnsPrint .pv-write{margin-top:4pt;color:#333;line-height:2}'+
+  '#fnsPrint .pv-cols{display:grid;grid-template-columns:1fr 1fr;gap:20pt}#fnsPrint .pv-cols li{margin:0 0 7pt}#fnsPrint .pv-key{break-before:page}#fnsPrint .pv-k li{margin:0 0 3pt;font-size:10.5pt}#fnsPrint .pv-foot{margin-top:16pt;font-size:9pt;color:#444;border-top:1pt solid #999;padding-top:4pt}#fnsPrint a{color:#000;text-decoration:none}}';
+  document.head.appendChild(st);var b=el("div","pbar"),b1=el("button","","🖨 Print lesson and worksheet"),b2=el("button","","🖨 Print with answer key");b1.type=b2.type="button";
+  b1.onclick=function(){printView(false);};b2.onclick=function(){printView(true);};b.appendChild(b1);b.appendChild(b2);lede.parentNode.insertBefore(b,lede.nextSibling);
+  window.addEventListener("beforeprint",function(){if(!document.documentElement.classList.contains("fnsPrinting")){printView(false,true);}});}
+function init(){if(L){printBar();see();quiz($("#try"),false);match($("#play"));quiz($("#test"),true);challenge($("#challenge"));var r=load()[id()]||{};if(r.test>=8){var nb=$("#nextbox");if(nb)nb.hidden=false;}mark("learn",true);}else unit();}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
 })();
