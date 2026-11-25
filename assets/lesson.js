@@ -61,13 +61,43 @@ function unit(){var o=load();document.querySelectorAll(".ul a[data-id]").forEach
 function seeded(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return function(){h^=h<<13;h^=h>>>17;h^=h<<5;return ((h>>>0)%100000)/100000;};}
 function sshuf(a,r){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
 var LET="abcd",SUB={science:"Science",english:"English",french:"French",geography:"Geography",history:"History"};
+
+var FR=!!(L&&L.subject==="french");
+function wcount(t){return (t.match(/[\p{L}\p{N}'’-]+/gu)||[]).length;}
+function scount(t){return t.split(/[.!?]+(?:\s|$)/).filter(function(x){return wcount(x)>=2;}).length;}
+function autoCheck(txt,w){
+  var T=FR?{ok:"Bien!",no:"À revoir",sent:"phrases",words:"mots",empty:"Écris ta réponse d'abord, puis vérifie.",cap:"Commence chaque phrase par une majuscule et termine par un point.",note:"La vérification automatique regarde la longueur, les mots demandés et les erreurs fréquentes. Compare aussi avec la réponse modèle."}
+           :{ok:"Good",no:"Check this",sent:"sentences",words:"words",empty:"Write your answer first, then check it.",cap:"Start each sentence with a capital letter and end with a period.",note:"The automatic check looks at length, required words and common mistakes. Also compare with the model answer."};
+  var t=String(txt||"").replace(/’/g,"'").trim();if(wcount(t)<3)return {html:'<p class="wq-x">'+T.empty+'</p>',tick:[]};
+  var lines=[],tick=[],rules=(w[3]||[]).slice(),need=0;
+  var m=String(w[0]).match(/(\d+)\s*(?:(?:–|-|to|or|ou)\s*(\d+)\s*)?(sentences|phrases|répliques|lines|lignes|steps|étapes|questions)/i);
+  var ns=scount(t),nw=wcount(t);
+  if(m){need=+m[1];var u=/répliques|lines|lignes|steps|étapes|questions/i.test(m[3]);var have=u?Math.max(ns,t.split(/\n|\s\/\s|—|–\s/).filter(function(x){return wcount(x)>=2;}).length):ns;
+    lines.push([have>=need,(FR?"Longueur : ":"Length: ")+have+" "+(u?m[3]:T.sent)+" ("+(FR?"objectif ":"goal ")+need+(m[2]?"–"+m[2]:"")+")"]);}
+  else lines.push([nw>=25,(FR?"Longueur : ":"Length: ")+nw+" "+T.words+(nw<25?(FR?" — ajoute des détails.":" — add more detail."):"")]);
+  var caps=t.split(/(?<=[.!?])\s+/).filter(function(x){return x.length>1;}),bad=caps.filter(function(x){return /^[a-zà-ÿ]/.test(x);}).length;
+  lines.push([bad===0&&/[.!?»"]\s*$/.test(t),T.cap]);
+  rules.forEach(function(r){
+    if(r[0]==="words"){var low=t.toLowerCase(),f=r[2].filter(function(x){return new RegExp("(^|[^\\p{L}])"+x.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(?=[^\\p{L}]|$)","iu").test(low);});var ok=f.length>=r[3];
+      lines.push([ok,r[1]+" : "+f.length+"/"+r[3]+(f.length?" ("+f.join(", ")+")":"")]);if(ok&&r[4]!=null)tick.push(r[4]);}
+    else if(r[0]==="rx"){var mm=t.match(new RegExp(r[2],"giu"))||[];var ok2=mm.length>=r[3];lines.push([ok2,r[1]+" : "+mm.length+"/"+r[3]]);if(ok2&&r[4]!=null)tick.push(r[4]);}
+    else if(r[0]==="avoid"){var hit=t.match(new RegExp(r[1],"iu"));if(hit)lines.push([false,"« "+hit[0].trim()+" » — "+r[2]]);}
+  });
+  if(m&&lines[0][0]&&w[2].length&&/phrases|sentences|répliques|lines|steps|étapes/i.test(w[2][0]))tick.push(0);
+  var good=lines.filter(function(x){return x[0];}).length;
+  var html='<p class="wq-rh">'+(good===lines.length?"✅ ":"📝 ")+good+" / "+lines.length+(FR?" vérifications réussies":" checks passed")+'</p><ul>'+lines.map(function(x){return '<li class="'+(x[0]?"ok":"no")+'">'+(x[0]?"✓ ":"✗ ")+esc(x[1])+'</li>';}).join("")+'</ul><p class="wq-n">'+T.note+'</p>';
+  return {html:html,tick:tick};
+}
 function written(root){if(!root||!L.written||!L.written.length)return;var seen=0;
   L.written.forEach(function(w,n){var c=el("div","wq"),q=el("p","wq-q","<b>"+(n+1)+".</b> "+esc(w[0])),ta=el("textarea");ta.rows=4;ta.placeholder="Write your answer here…";ta.setAttribute("aria-label","Your answer to question "+(n+1));
     var b=el("button","btn2 alt","Show model answer");b.type="button";var out=el("div","wq-a");out.hidden=true;
     out.innerHTML='<p class="wq-m"><b>Model answer:</b> '+esc(w[1])+'</p><p class="wq-k">Tick the key points you included:</p>'+w[2].map(function(k,i){return '<label class="wq-c"><input type="checkbox"> '+esc(k)+'</label>';}).join("")+'<p class="wq-s" aria-live="polite"></p>';
     var sc=out.querySelector(".wq-s");function upd(){var t=out.querySelectorAll("input:checked").length;sc.textContent="You covered "+t+" of "+w[2].length+" key points."+(t===w[2].length?" Excellent!":"");}
+    var ck=el("button","btn2","Check my answer");ck.type="button";var res=el("div","wq-r");res.hidden=true;res.setAttribute("aria-live","polite");
+    ck.onclick=function(){var r=autoCheck(ta.value,w);res.hidden=false;res.innerHTML=r.html;
+      if(r.tick.length){if(out.hidden)b.onclick();var bx=out.querySelectorAll("input");r.tick.forEach(function(i){if(bx[i])bx[i].checked=true;});upd();}};
     out.addEventListener("change",upd);b.onclick=function(){out.hidden=!out.hidden;b.textContent=out.hidden?"Show model answer":"Hide model answer";if(!out.hidden&&!c.dataset.s){c.dataset.s=1;seen++;upd();if(seen===L.written.length)mark("write",true);}};
-    [q,ta,b,out].forEach(function(x){c.appendChild(x);});root.appendChild(c);});}
+    var bar=el("div","wq-btns");bar.appendChild(ck);bar.appendChild(b);[q,ta,bar,res,out].forEach(function(x){c.appendChild(x);});root.appendChild(c);});}
 function label(root){var D=L.label;if(!root||!D||!D.parts)return;var names=D.parts.map(function(p){return p[1];});
   root.innerHTML='<div class="fig lbl-fig">'+D.svg+'</div>'+(D.title?'<p class="lbl-t">'+esc(D.title)+'</p>':'');var g=el("div","lbl-g"),opts=shuffle(names);
   D.parts.forEach(function(p){var r=el("label","lbl-r","<b>"+esc(p[0])+"</b>"),s=el("select");s.innerHTML='<option value="">Choose…</option>'+opts.map(function(x){return '<option>'+esc(x)+'</option>';}).join("");s.dataset.a=p[1];r.appendChild(s);g.appendChild(r);});
