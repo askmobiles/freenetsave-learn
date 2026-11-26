@@ -74,7 +74,7 @@ function autoCheck(txt,w){
   var ns=scount(t),nw=wcount(t);
   if(m){need=+m[1];var u=/répliques|lines|lignes|steps|étapes|questions/i.test(m[3]);var have=u?Math.max(ns,t.split(/\n|\s\/\s|—|–\s/).filter(function(x){return wcount(x)>=2;}).length):ns;
     lines.push([have>=need,(FR?"Longueur : ":"Length: ")+have+" "+(u?m[3]:T.sent)+" ("+(FR?"objectif ":"goal ")+need+(m[2]?"–"+m[2]:"")+")"]);}
-  else lines.push([nw>=25,(FR?"Longueur : ":"Length: ")+nw+" "+T.words+(nw<25?(FR?" — ajoute des détails.":" — add more detail."):"")]);
+  else{var mw=(L&&L.g<=2)?10:(L&&L.g<=4)?15:25;lines.push([nw>=mw,(FR?"Longueur : ":"Length: ")+nw+" "+T.words+(nw<mw?(FR?" — ajoute des détails.":" — add more detail."):"")]);}
   var caps=t.split(/(?<=[.!?])\s+/).filter(function(x){return x.length>1;}),bad=caps.filter(function(x){return /^[a-zà-ÿ]/.test(x);}).length;
   lines.push([bad===0&&/[.!?»"]\s*$/.test(t),T.cap]);
   rules.forEach(function(r){
