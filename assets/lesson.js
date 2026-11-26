@@ -62,7 +62,7 @@ function seeded(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charC
 function sshuf(a,r){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
 var LET="abcd",SUB={science:"Science",english:"English",french:"French",geography:"Geography",history:"History"};
 
-var FR=!!(L&&L.subject==="french");
+var FR=!!(L&&L.subject==="french"&&L.lang!=="en");
 function wcount(t){return (t.match(/[\p{L}\p{N}'’-]+/gu)||[]).length;}
 function scount(t){return t.split(/[.!?]+(?:\s|$)/).filter(function(x){return wcount(x)>=2;}).length;}
 function autoCheck(txt,w){
